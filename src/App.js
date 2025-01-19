@@ -5,6 +5,7 @@ import { increaseCounter, decreaseCounter } from "./action/actions";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { useEffect } from "react";
+import Home from "./component/Home";
 const App = (props) => {
   // let { count, increaseCounter, decreaseCounter } = props;
   const counter = useSelector((state) => state.counter.count);
@@ -20,17 +21,22 @@ const App = (props) => {
     fetchAllUser();
   }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>Hello world with React and Hoi Dan IT!</h1>
-        <h1>Count:{counter}</h1>
-        <button onClick={() => handleIncreaseCount()}>Increase Counter</button>
-        <button onClick={() => dispatch(decreaseCounter())}>
-          Decrease Counter
-        </button>
-      </header>
-    </div>
+    <>
+      {/* <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h1>Hello world with React and Hoi Dan IT!</h1>
+          <h1>Count:{counter}</h1>
+          <button onClick={() => handleIncreaseCount()}>
+            Increase Counter
+          </button>
+          <button onClick={() => dispatch(decreaseCounter())}>
+            Decrease Counter
+          </button>
+        </header>
+      </div> */}
+      <Home />
+    </>
   );
 };
 // const mapStateToProps = (state) => {
