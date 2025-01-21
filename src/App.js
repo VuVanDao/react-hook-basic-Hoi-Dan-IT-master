@@ -1,25 +1,17 @@
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
 // import { connect } from "react-redux";
-import { increaseCounter, decreaseCounter } from "./action/actions";
-import { useSelector, useDispatch } from "react-redux";
-import axios from "axios";
-import { useEffect } from "react";
+// import { increaseCounter, decreaseCounter } from "./action/actions";
+// import { useSelector, useDispatch } from "react-redux";
 import Home from "./component/Home";
 const App = (props) => {
   // let { count, increaseCounter, decreaseCounter } = props;
-  const counter = useSelector((state) => state.counter.count);
-  const dispatch = useDispatch();
-  const handleIncreaseCount = () => {
-    dispatch(increaseCounter());
-  };
-  const fetchAllUser = async () => {
-    let res = await axios.get("http://localhost:8080/users/all");
-    console.log("<<>><<>>", res);
-  };
-  useEffect(() => {
-    fetchAllUser();
-  }, []);
+  // const counter = useSelector((state) => state.counter.count);
+  // const dispatch = useDispatch();
+  // const handleIncreaseCount = () => {
+  //   dispatch(increaseCounter());
+  // };
+
   return (
     <>
       {/* <div className="App">
