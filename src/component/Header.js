@@ -4,8 +4,11 @@ import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { useSelector } from "react-redux";
+import TableUser from "./TableUser";
 
 const Header = (props) => {
+  let countUser = useSelector((state) => state.user.listUser);
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
@@ -19,15 +22,22 @@ const Header = (props) => {
           >
             <Nav.Link href="#action1">Header</Nav.Link>
             <Nav.Link href="#action2">Link</Nav.Link>
-            <NavDropdown title="Link" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Another action
+            <NavDropdown
+              title={`total ${countUser.length} user`}
+              id="navbarScrollingDropdown"
+            >
+              <NavDropdown.Item>
+                <TableUser />
               </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Something else here
-              </NavDropdown.Item>
+              {/* {countUser &&
+                countUser.length > 0 &&
+                countUser.map((item, index) => {
+                  return (
+                    <NavDropdown.Item href="#" key={`user-${index}`}>
+                      {item.username}|| {item.email}
+                    </NavDropdown.Item>
+                  );
+                })} */}
             </NavDropdown>
             <Nav.Link href="#" disabled>
               Link

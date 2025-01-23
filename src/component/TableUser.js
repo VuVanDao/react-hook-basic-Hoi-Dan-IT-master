@@ -1,7 +1,7 @@
 import { Container, Table } from "react-bootstrap";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchAllUser } from "../action/actions";
+import { fetchAllUser, deleteAUser } from "../action/actions";
 import "./loading.css";
 const TableUser = (props) => {
   let dispatch = useDispatch();
@@ -14,6 +14,7 @@ const TableUser = (props) => {
   }, []);
   const handleDeleteUser = (user) => {
     console.log(">>", user);
+    dispatch(deleteAUser(user.id));
   };
   return (
     <>
@@ -48,7 +49,7 @@ const TableUser = (props) => {
             </div>
           ) : (
             <Container className="mt-5">
-              <Table striped bordered hover>
+              <Table bordered hover>
                 <thead>
                   <tr>
                     <th>#</th>
@@ -62,7 +63,10 @@ const TableUser = (props) => {
                     listUserRedux.length > 0 &&
                     listUserRedux.map((item, index) => {
                       return (
-                        <tr key={`item-${index}`}>
+                        <tr
+                          key={`item-${index}`}
+                          style={{ textAlign: "center" }}
+                        >
                           <td>{item.id}</td>
                           <td>{item.email}</td>
                           <td>{item.username}</td>
